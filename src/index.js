@@ -43,7 +43,7 @@ export const useLocaleFromPathname = pathname => {
 /* eslint-disable no-prototype-builtins */
 export const withTranslation = configs => Page => {
   if (!setLocale) {
-    setLocale = i18nSetup(configs)
+    i18nSetup(configs)
   }
 
   // Default function in case none is present
@@ -67,10 +67,7 @@ export const withTranslation = configs => Page => {
   }
 
   const HOC = props => {
-    const {
-      query: { lang },
-    } = props
-
+    const { lang } = props
     setLocale(lang)
     setLinkLocale(lang)
 
