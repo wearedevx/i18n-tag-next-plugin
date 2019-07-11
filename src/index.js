@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types'
-import i18nSetup from 'i18n-tag-wrapper'
-import configs from '../../locales'
 import { setLinkLocale } from './link'
 
-const setLocale = i18nSetup(configs)
+import i18n from 'i18n-tag-wrapper'
 
-export default setLocale.T
+export default i18n
+
+let setLocale = false
+
+export const i18nSetup = (configs) => {
+  setLocale = i18n.setup(configs)
+}
 
 // eslint-disable-next-line no-unused-vars
 const useLocaleFromQuery = query => {
@@ -33,7 +37,11 @@ export const useLocaleFromPathname = pathname => {
 
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-prototype-builtins */
-export const withTranslation = Page => {
+export const withTranslation = configs => Page => {
+  if (!setLocale) {
+    setLocale = i18nSetup(configs)
+  }
+
   // Default function in case none is present
   let originalFunction = () => ({})
 
