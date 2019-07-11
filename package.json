@@ -10,6 +10,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "i18n-tag-wrapper": "git+https://daedb446c2bb68ed23012733e51e6ec35bd01f3c:x-oauth-basic@github.com/wearedevx/i18n-tag-wrapper.git",
+    "next": "^9.0.0",
+    "react": "^16.8.6"
+  },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.4",
