@@ -75,6 +75,8 @@ export const withTranslation = configs => Page => {
     return <Page {...props} lang={lang} />
   }
 
+  HOC.getInitialProps = Page.getInitialProps
+
   HOC.propTypes = {
     ...Page.propTypes,
     lang: PropTypes.string,
