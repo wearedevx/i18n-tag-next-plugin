@@ -6,8 +6,12 @@ import i18n from 'i18n-tag-wrapper'
 export default i18n
 
 let setLocale = false
+let _configs = {
+  locales: []
+}
 
 export const i18nSetup = (configs) => {
+  _configs = configs
   setLocale = i18n.setup(configs)
 }
 
@@ -20,7 +24,7 @@ const useLocaleFromQuery = query => {
 }
 
 const hasLocale = localeName =>
-  Object.keys(configs.locales).includes(localeName)
+  Object.keys(_configs.locales).includes(localeName)
 
 export const useLocaleFromPathname = pathname => {
   // the locale will be at index 1 because pathname starts with /
