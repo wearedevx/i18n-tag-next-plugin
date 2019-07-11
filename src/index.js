@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import i18n from 'i18n-tag-wrapper'
 import { setLinkLocale } from './link'
 
-import i18n from 'i18n-tag-wrapper'
-
 export default i18n
+export { default as Link } from './link'
 
 let setLocale = false
 let _configs = {
