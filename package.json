@@ -1,0 +1,16 @@
+{
+  "name": "i18n-tag-next-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "prettier": "^1.18.2"
+  }
+}
