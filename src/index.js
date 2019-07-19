@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import i18n from 'i18n-tag-wrapper'
+import i18n from '@wearedevx/i18n-tag-wrapper'
 import { setLinkLocale } from './link'
 
 export default i18n
