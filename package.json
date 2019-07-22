@@ -1,6 +1,6 @@
 {
   "name": "@wearedevx/i18n-tag-next-plugin",
-  "version": "1.0.10",
+  "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
