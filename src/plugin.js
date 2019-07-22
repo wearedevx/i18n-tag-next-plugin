@@ -7,7 +7,7 @@ const { PHASE_EXPORT } = require('next/constants')
  * @returns {[string]}
  */
 function getLocales() {
-  const localeDir = path.join(__dirname, '..', '..', 'locales')
+  const localeDir = path.join(process.cwd(), 'locales')
 
   return fs
     .readdirSync(localeDir)
@@ -99,7 +99,7 @@ function buildPathMapForLang(paths, lang) {
  * @returns {PathMap}
  */
 function localizedPathMaps() {
-  const paths = traverseDir(path.join(__dirname, '..', '..', 'pages', '[lang]'))
+  const paths = traverseDir(path.join(process.cwd(), 'pages', '[lang]'))
   const locales = getLocales()
 
   return locales.reduce(
@@ -128,7 +128,7 @@ function withI18nTagPlugin(nextConfig = {}, composePlugins = {}) {
     if (phase === PHASE_EXPORT) {
       Object.assign(newConfig, {
         exportTrailingSlash: true,
-        exportPathMap: async defaultPathMap => ({
+        exportPathMap: defaultPathMap => ({
           ...defaultPathMap,
           ...localizedPathMaps(),
         }),
