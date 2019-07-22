@@ -68,6 +68,7 @@ function traverseDir(rootPath, sub = '') {
           .replace(/\\/g, '/')
           .replace('index.js', '')
           .replace(/\.m?jsx?/g, '')
+          .replace(/\/$/, '')
       )
     })
 
