@@ -40,6 +40,18 @@ export const useLocaleFromPathname = pathname => {
   return ''
 }
 
+
+export const getLocaleFromPathname = pathname => {
+  // the locale will be at index 1 because pathname starts with /
+  const localeName = pathname.split('/')[1]
+
+  if (hasLocale(localeName)) {
+    return localeName
+  }
+
+  return ''
+}
+
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-prototype-builtins */
 export const withTranslation = configs => Page => {
