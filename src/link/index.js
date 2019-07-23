@@ -44,5 +44,5 @@ Link.defaultProps = {
 export default Link
 
 export const setLinkLocale = locale => {
-  lang = locale
+  globalLang = locale
 }
