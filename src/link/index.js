@@ -1,12 +1,13 @@
 import React from 'react'
 import NextLink from 'next/link'
 import PropTypes from 'prop-types'
+import exact from 'prop-types-exact'
 
-let lang = ''
+let globalLang = ''
 
-const Link = ({ className, children, ...props }) => {
+const Link = ({ className, children, lang, ...props }) => {
   const newProps = { ...props }
-  let langToUse = props.lang || lang
+  let langToUse = lang || globalLang
 
   if (langToUse !== '') {
     newProps.href = `/${langToUse}${props.href}`
@@ -25,7 +26,7 @@ const Link = ({ className, children, ...props }) => {
   )
 }
 
-Link.propTypes = {
+Link.propTypes = exact({
   ...NextLink.propTypes,
   lang: PropTypes.string,
   className: PropTypes.string,
@@ -33,7 +34,7 @@ Link.propTypes = {
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
-}
+})
 
 Link.defaultProps = {
   ...NextLink.defaultProps,
