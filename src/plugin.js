@@ -129,10 +129,17 @@ function withI18nTagPlugin(nextConfig = {}, composePlugins = {}) {
     if (phase === PHASE_EXPORT) {
       Object.assign(newConfig, {
         exportTrailingSlash: true,
-        exportPathMap: defaultPathMap => ({
-          ...defaultPathMap,
-          ...localizedPathMaps(),
-        }),
+        exportPathMap: defaultPathMap => {
+          Object.keys(defaultPathMap).forEach(key => {
+            if (key.indexOf('/[lang]') > -1) {
+              delete defaultPathMap[key]
+            }
+          })
+          return {
+            ...defaultPathMap,
+            ...localizedPathMaps(),
+          }
+        },
       })
     }
 
